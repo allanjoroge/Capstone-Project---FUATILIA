@@ -1,0 +1,99 @@
+﻿@model OfficialCPP.Models.Activity
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Monitor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <ht>
+            TICKET #
+        </ht>
+
+        <dt>
+            @Html.DisplayFor(model => model.OwnersInformation.TicketNumber)
+        </dt>
+
+        <ht>
+            FIRST NAME
+        </ht>
+
+        <dt>
+            @Html.DisplayFor(model => model.OwnersInformation.FirstName)
+        </dt>
+
+        <ht>
+            LAST NAME
+        </ht>
+
+        <dt>
+            @Html.DisplayFor(model => model.OwnersInformation.LastName)
+        </dt>
+
+        <ht>
+            MAKE
+        </ht>
+
+        <dt>
+            @Html.DisplayFor(model => model.OwnersInformation.Make)
+        </dt>
+
+        <ht>
+            MODEL
+        </ht>
+
+        <dt>
+            @Html.DisplayFor(model => model.OwnersInformation.Model)
+        </dt>
+
+        <ht>
+            LICENSE PALTE
+        </ht>
+
+        <dt>
+            @Html.DisplayFor(model => model.OwnersInformation.LicensePlate)
+        </dt>
+
+        <ht>
+            TIME LEFT
+        </ht>
+
+        <dt>
+            @Html.DisplayFor(model => model.TimeLeft)
+        </dt>
+
+        <ht>
+            DELIVERER
+        </ht>
+
+        <dt>
+            @Html.DisplayFor(model => model.Deliverer)
+        </dt>
+
+        <ht>
+            RETURN TIME
+        </ht>
+
+        <dt>
+            @Html.DisplayFor(model => model.ReturnTime)
+        </dt>
+
+        <ht>
+            PARKED BY
+        </ht>
+
+        <dt>
+            @Html.DisplayFor(model => model.Parkedby)
+        </dt>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MonitorId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

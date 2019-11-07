@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="69b4245b2d0a4ec4a25d173cbeb6101d" Name="Diagram1">
+        <EntityTypeShape EntityType="ValetLogModel.Driver" Width="1.5" PointX="1.875" PointY="2.5" />
+        <EntityTypeShape EntityType="ValetLogModel.OwnersInformation" Width="1.5" PointX="4.375" PointY="2.5" />
+        <AssociationConnector Association="ValetLogModel.FK__OwnersInf__Parke__4D94879B" />
+        <EntityTypeShape EntityType="ValetLogModel.Activity" Width="1.5" PointX="6.625" PointY="0.75" />
+        <AssociationConnector Association="ValetLogModel.FK__Monitor__TicketN__5070F446" />
+        <AssociationConnector Association="ValetLogModel.FK_Activity_Deliverer" />
+        <AssociationConnector Association="ValetLogModel.FK_Activity_Parkedby" />
+        <EntityTypeShape EntityType="ValetLogModel.User" Width="1.5" PointX="8.875" PointY="1.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

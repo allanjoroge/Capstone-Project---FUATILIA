@@ -1,0 +1,87 @@
+﻿@model IEnumerable<OfficialCPP.Models.Activity>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+    <p><font size="6">Monitor Activity</font></p>
+
+<p>
+    @Html.ActionLink("Request Vehicle", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Time Requested
+        </th>
+        <th>
+            Ticket Number
+        </th>
+        <th>
+            Last Name
+        </th>
+        <th>
+            Make
+        </th>
+        <th>
+            License Plate
+        </th>
+        <th>
+            Time Left
+        </th>
+        <th>
+            Deliverer
+        </th>
+        <th>
+            Return Time
+        </th>
+        <th>
+            Parker
+        </th>
+        <th>
+            Reparked Location
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.TimeRequested)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.OwnersInformation.TicketNumber)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.OwnersInformation.LastName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.OwnersInformation.Make)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.OwnersInformation.LicensePlate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TimeLeft)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Deliverer)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ReturnTime)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Parkedby)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ReparkedLocat)
+   </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.MonitorId })
+        @Html.ActionLink("Details", "Details", new { id = item.MonitorId })
+        @*@Html.ActionLink("Delete", "Delete", new { id = item.MonitorId })*@
+    </td>
+</tr>
+}
+
+</table>

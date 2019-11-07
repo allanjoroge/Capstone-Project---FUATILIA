@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ValetLogModelStoreContainer" CdmEntityContainer="ValetLogEntities">
+    <EntitySetMapping Name="Activities">
+      <EntityTypeMapping TypeName="ValetLogModel.Activity">
+        <MappingFragment StoreEntitySet="Activity">
+          <ScalarProperty Name="MonitorId" ColumnName="MonitorId" />
+          <ScalarProperty Name="TicketNumber" ColumnName="TicketNumber" />
+          <ScalarProperty Name="TimeLeft" ColumnName="TimeLeft" />
+          <ScalarProperty Name="Deliverer" ColumnName="Deliverer" />
+          <ScalarProperty Name="ReturnTime" ColumnName="ReturnTime" />
+          <ScalarProperty Name="Parkedby" ColumnName="Parkedby" />
+          <ScalarProperty Name="TimeRequested" ColumnName="TimeRequested" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Drivers">
+      <EntityTypeMapping TypeName="ValetLogModel.Driver">
+        <MappingFragment StoreEntitySet="Drivers">
+          <ScalarProperty Name="DriversId" ColumnName="DriversId" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="TimeIn" ColumnName="TimeIn" />
+          <ScalarProperty Name="In" ColumnName="In" />
+          <ScalarProperty Name="Out" ColumnName="Out" />
+          <ScalarProperty Name="TimeOut" ColumnName="TimeOut" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OwnersInformations">
+      <EntityTypeMapping TypeName="ValetLogModel.OwnersInformation">
+        <MappingFragment StoreEntitySet="OwnersInformation">
+          <ScalarProperty Name="TicketNumber" ColumnName="TicketNumber" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Make" ColumnName="Make" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="LicensePlate" ColumnName="LicensePlate" />
+          <ScalarProperty Name="ParkedLocation" ColumnName="ParkedLocation" />
+          <ScalarProperty Name="ParkedBy" ColumnName="ParkedBy" />
+          <ScalarProperty Name="exp" ColumnName="exp" />
+          <ScalarProperty Name="Arrival" ColumnName="Arrival" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="ValetLogModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

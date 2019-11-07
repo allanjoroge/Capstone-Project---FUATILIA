@@ -1,0 +1,73 @@
+﻿@model OfficialCPP.Models.Driver
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Driver</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <ht>
+            INITIALS
+        </ht>
+
+        <dt>
+            @Html.DisplayFor(model => model.DriversId)
+        </dt>
+        <ht>
+           TIME IN
+        </ht>
+
+        <dt>
+            @Html.DisplayFor(model => model.TimeIn)
+        </dt>
+
+        <ht>
+           CARS PARKED
+        </ht>
+
+        <dt>
+            @Html.DisplayFor(model => model.In)
+            <ul>
+                @foreach (var ticket in Model.OwnersInformations.Select(f => f.TicketNumber).Union(Model.listOfCarsParked.Select(j => j.TicketNumber)))
+                {
+                    <li>
+                        @ticket
+                    </li>
+                }
+            </ul>
+        </dt>
+
+        <ht>
+           CARS DELIVERED 
+        </ht>
+
+        <dt>
+            <ul>
+                @foreach (var ticket in Model.listOfCarsDelivered)
+                {
+                    <li>
+                        @ticket.TicketNumber
+                    </li>
+                }
+            </ul>
+        </dt>
+
+        <ht>
+            TIME OUT
+        </ht>
+
+        <dt>
+            @Html.DisplayFor(model => model.TimeOut)
+        </dt>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DriversId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

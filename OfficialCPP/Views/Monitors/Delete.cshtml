@@ -1,0 +1,48 @@
+﻿@model OfficialCPP.Models.Activity
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Monitor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TicketNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TicketNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnersInformation.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OwnersInformation.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnersInformation.LicensePlate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OwnersInformation.LicensePlate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

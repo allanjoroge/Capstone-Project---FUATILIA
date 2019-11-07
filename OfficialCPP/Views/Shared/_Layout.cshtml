@@ -1,0 +1,76 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Editorial by HTML5 UP</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link href="~/Content/main.css" rel="stylesheet" />
+</head>
+<body class="is-preload">
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+        
+        <!-- Main -->
+        <div id="main">
+
+
+            <div class="inner">
+
+                <!-- Header -->
+                <header id="header">
+                    @*a href=""*@ <class="logo"><strong><h1>FUAT!L!A</h1></strong></a>
+                </header>
+                @RenderBody()
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <div class="inner">
+
+                <!-- Search -->
+                <section id="search" class="alt">
+
+                    <form method="post" action="@Url.Action("Index", "OwnersInformations")">
+                        <input type="text" name="query" id="query" placeholder="Search" />
+
+                    </form>
+                </section>
+
+                <!-- Menu -->
+                <nav id="menu">
+                    <header class="major">
+                    </header>
+                    <ul>
+                        <p><font size="6">Menu</font></p>
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Drivers", "Index", "Drivers")</li>
+                        <li>@Html.ActionLink("Activity", "Index", "Monitors")</li>
+                        <li>@Html.ActionLink("Logged", "Index", "OwnersInformations")</li>
+                        <li>@Html.ActionLink("Gone", "gone", "OwnersInformations")</li>
+                        <li>@Html.ActionLink("Sign Up", "Register", "Account")</li>
+                        <li>@Html.Partial("_LoginPartial")</li>
+                        @*<li>@Html.ActionLink("Login", "Login", "Account")</li>*@
+                    </ul>
+                </nav>
+
+                <footer id="footer">
+                </footer>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/browser.min.js"></script>
+    <script src="~/Scripts/breakpoints.min.js"></script>
+    <script src="~/Scripts/util.js"></script>
+    <script src="~/Scripts/main.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

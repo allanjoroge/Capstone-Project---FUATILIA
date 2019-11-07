@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ValetLogModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="ValetLogEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Drivers" EntityType="ValetLogModel.Driver" />
+    <EntitySet Name="OwnersInformations" EntityType="ValetLogModel.OwnersInformation" />
+    <AssociationSet Name="FK__OwnersInf__Parke__4D94879B" Association="ValetLogModel.FK__OwnersInf__Parke__4D94879B">
+      <End Role="Driver" EntitySet="Drivers" />
+      <End Role="OwnersInformation" EntitySet="OwnersInformations" />
+    </AssociationSet>
+    <EntitySet Name="Activities" EntityType="ValetLogModel.Activity" />
+    <AssociationSet Name="FK__Monitor__TicketN__5070F446" Association="ValetLogModel.FK__Monitor__TicketN__5070F446">
+      <End Role="OwnersInformation" EntitySet="OwnersInformations" />
+      <End Role="Activity" EntitySet="Activities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Activity_Deliverer" Association="ValetLogModel.FK_Activity_Deliverer">
+      <End Role="Driver" EntitySet="Drivers" />
+      <End Role="Activity" EntitySet="Activities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Activity_Parkedby" Association="ValetLogModel.FK_Activity_Parkedby">
+      <End Role="Driver" EntitySet="Drivers" />
+      <End Role="Activity" EntitySet="Activities" />
+    </AssociationSet>
+    <EntitySet Name="Users" EntityType="ValetLogModel.User" />
+  </EntityContainer>
+  <EntityType Name="Driver">
+    <Key>
+      <PropertyRef Name="DriversId" />
+    </Key>
+    <Property Name="DriversId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Firstname" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="TimeIn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="In" Type="Int32" />
+    <Property Name="Out" Type="Int32" />
+    <Property Name="TimeOut" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="OwnersInformations" Relationship="ValetLogModel.FK__OwnersInf__Parke__4D94879B" FromRole="Driver" ToRole="OwnersInformation" />
+    <NavigationProperty Name="listOfCarsDelivered" Relationship="ValetLogModel.FK_Activity_Deliverer" FromRole="Driver" ToRole="Activity" />
+    <NavigationProperty Name="listOfCarsParked" Relationship="ValetLogModel.FK_Activity_Parkedby" FromRole="Driver" ToRole="Activity" />
+  </EntityType>
+  <EntityType Name="OwnersInformation">
+    <Key>
+      <PropertyRef Name="TicketNumber" />
+    </Key>
+    <Property Name="TicketNumber" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Make" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Model" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Color" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="LicensePlate" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ParkedLocation" Type="Int32" Nullable="false" />
+    <Property Name="ParkedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="exp" Type="DateTime" Precision="3" />
+    <Property Name="Arrival" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Driver" Relationship="ValetLogModel.FK__OwnersInf__Parke__4D94879B" FromRole="OwnersInformation" ToRole="Driver" />
+    <NavigationProperty Name="Activities" Relationship="ValetLogModel.FK__Monitor__TicketN__5070F446" FromRole="OwnersInformation" ToRole="Activity" />
+  </EntityType>
+  <Association Name="FK__OwnersInf__Parke__4D94879B">
+    <End Type="ValetLogModel.Driver" Role="Driver" Multiplicity="0..1" />
+    <End Type="ValetLogModel.OwnersInformation" Role="OwnersInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Driver">
+        <PropertyRef Name="DriversId" />
+      </Principal>
+      <Dependent Role="OwnersInformation">
+        <PropertyRef Name="ParkedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Activity">
+    <Key>
+      <PropertyRef Name="MonitorId" />
+    </Key>
+    <Property Name="MonitorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TicketNumber" Type="Int32" Nullable="false" />
+    <Property Name="TimeLeft" Type="DateTime" Precision="3" />
+    <Property Name="ReturnTime" Type="DateTime" Precision="3" />
+    <Property Name="Parkedby" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TimeRequested" Type="DateTime" Precision="3" />
+    <Property Name="Deliverer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ReparkedLocat" Type="Int32" />
+    <NavigationProperty Name="OwnersInformation" Relationship="ValetLogModel.FK__Monitor__TicketN__5070F446" FromRole="Activity" ToRole="OwnersInformation" />
+    <NavigationProperty Name="DeriveryDriver" Relationship="ValetLogModel.FK_Activity_Deliverer" FromRole="Activity" ToRole="Driver" />
+    <NavigationProperty Name="Parker" Relationship="ValetLogModel.FK_Activity_Parkedby" FromRole="Activity" ToRole="Driver" />
+  </EntityType>
+  <Association Name="FK__Monitor__TicketN__5070F446">
+    <End Type="ValetLogModel.OwnersInformation" Role="OwnersInformation" Multiplicity="1" />
+    <End Type="ValetLogModel.Activity" Role="Activity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OwnersInformation">
+        <PropertyRef Name="TicketNumber" />
+      </Principal>
+      <Dependent Role="Activity">
+        <PropertyRef Name="TicketNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Activity_Deliverer">
+    <End Type="ValetLogModel.Driver" Role="Driver" Multiplicity="0..1" />
+    <End Type="ValetLogModel.Activity" Role="Activity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Driver">
+        <PropertyRef Name="DriversId" />
+      </Principal>
+      <Dependent Role="Activity">
+        <PropertyRef Name="Deliverer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Activity_Parkedby">
+    <End Type="ValetLogModel.Driver" Role="Driver" Multiplicity="0..1" />
+    <End Type="ValetLogModel.Activity" Role="Activity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Driver">
+        <PropertyRef Name="DriversId" />
+      </Principal>
+      <Dependent Role="Activity">
+        <PropertyRef Name="Parkedby" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="EmployeeId" />
+    </Key>
+    <Property Name="EmployeeId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Username" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,11 @@
+C:\Users\njoro\source\repos\OfficialCPP\CCPEntetities\obj\Debug\CCPEntetities.csproj.CoreCompileInputs.cache
+C:\Users\njoro\source\repos\OfficialCPP\CCPEntetities\bin\Debug\CCPEntetities.dll.config
+C:\Users\njoro\source\repos\OfficialCPP\CCPEntetities\bin\Debug\CCPEntetities.dll
+C:\Users\njoro\source\repos\OfficialCPP\CCPEntetities\bin\Debug\CCPEntetities.pdb
+C:\Users\njoro\source\repos\OfficialCPP\CCPEntetities\bin\Debug\EntityFramework.dll
+C:\Users\njoro\source\repos\OfficialCPP\CCPEntetities\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\njoro\source\repos\OfficialCPP\CCPEntetities\bin\Debug\EntityFramework.xml
+C:\Users\njoro\source\repos\OfficialCPP\CCPEntetities\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\njoro\source\repos\OfficialCPP\CCPEntetities\obj\Debug\CCPEntetities.csproj.CopyComplete
+C:\Users\njoro\source\repos\OfficialCPP\CCPEntetities\obj\Debug\CCPEntetities.dll
+C:\Users\njoro\source\repos\OfficialCPP\CCPEntetities\obj\Debug\CCPEntetities.pdb
